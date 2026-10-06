@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join Nike AirPulse Member Lab. Unlock exclusive footwear releases, personalized Stride AI recommendations, and express delivery across India.">
+  <title>Join Us / Create Account — NIKE // AIRPULSE MEMBER LAB</title>
+
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-ambient-glow"></div>
+
+  <div class="auth-wrapper">
+    
+    <!-- Top Back to Store Bar -->
+    <header class="auth-header">
+      <a href="/" class="auth-back-link">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Store</span>
+      </a>
+
+      <a href="/" class="brand-logo" aria-label="Nike Home">
+        <svg class="swoosh-icon" viewBox="0 0 100 36" fill="currentColor">
+          <path d="M96.7 1.8C81.8 12.5 61.2 24.5 41.5 31.2C28.4 35.7 14.3 35.4 4.8 28.5C0.3 25.2 -0.8 21.1 0.5 17.2C1.9 13 6.3 10.3 11.2 9.7C16.8 9.1 23.6 11.5 28.7 14.8C20.4 17.5 12.1 20.3 6.3 22.8C8.9 26.2 16.5 27.8 24.2 25.6C39.4 21.2 59.5 11.3 77.2 1.4C83.2 -2 90.3 -0.5 96.7 1.8Z"/>
+        </svg>
+        <span class="brand-title">AIRPULSE</span>
+      </a>
+    </header>
+
+    <!-- Main Register Card -->
+    <div class="auth-card auth-card-wide">
+      
+      <div class="auth-card-top">
+        <div class="auth-tag">BECOME A NIKE MEMBER</div>
+        <h1 class="auth-title">JOIN THE ELITE MOVEMENT</h1>
+        <p class="auth-sub">Create your Nike Member profile and get first access to the very best of products, inspiration, and community.</p>
+      </div>
+
+      <!-- Member Perks Highlights -->
+      <div class="member-perks-row">
+        <div class="perk-chip">⚡ Member-First Drops</div>
+        <div class="perk-chip">📦 Free Shipping ₹14,000+</div>
+        <div class="perk-chip">👟 Stride AI Profile</div>
+        <div class="perk-chip">🎁 Birthday Rewards</div>
+      </div>
+
+      <!-- Alert Box for Errors/Success -->
+      <div class="auth-alert" id="auth-alert" style="display: none;"></div>
+
+      <form id="register-form" class="auth-form">
+        
+        <div class="auth-grid-row">
+          <div class="auth-input-group">
+            <label for="reg-name">Full Name</label>
+            <div class="auth-input-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input type="text" id="reg-name" placeholder="Aarav Sharma" required autofocus>
+            </div>
+          </div>
+
+          <div class="auth-input-group">
+            <label for="reg-phone">Phone Number (India)</label>
+            <div class="auth-input-box">
+              <span class="prefix-code">+91</span>
+              <input type="tel" id="reg-phone" placeholder="98765 43210" pattern="[0-9]{10}" title="10-digit Indian Mobile Number">
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-input-group">
+          <label for="reg-email">Email Address</label>
+          <div class="auth-input-box">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input type="email" id="reg-email" placeholder="aarav@nike.in" required>
+          </div>
+        </div>
+
+        <div class="auth-grid-row">
+          <div class="auth-input-group">
+            <label for="reg-password">Password (Min 6 characters)</label>
+            <div class="auth-input-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="reg-password" placeholder="••••••••" minlength="6" required>
+            </div>
+          </div>
+
+          <div class="auth-input-group">
+            <label for="reg-confirm-password">Confirm Password</label>
+            <div class="auth-input-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <input type="password" id="reg-confirm-password" placeholder="••••••••" minlength="6" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-actions-row">
+          <label class="remember-checkbox">
+            <input type="checkbox" id="terms-agree" required checked>
+            <span>I agree to Nike's Privacy Policy and Terms of Use in India.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary btn-large full-width" id="btn-register-submit">
+          <span id="reg-btn-text">JOIN NIKE AIRPULSE</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+      </form>
+
+      <div class="auth-footer-prompt">
+        <span>Already a Nike Member?</span>
+        <a href="/login" class="auth-switch-link">Sign In Here →</a>
+      </div>
+
+    </div>
+
+    <footer class="auth-page-footer">
+      <p>© 2026 NIKE // AIRPULSE LABS, INC. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('register-form');
+    const alertBox = document.getElementById('auth-alert');
+    const submitBtn = document.getElementById('btn-register-submit');
+    const btnText = document.getElementById('reg-btn-text');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const password = document.getElementById('reg-password').value.trim();
+      const confirmPassword = document.getElementById('reg-confirm-password').value.trim();
+
+      if (password !== confirmPassword) {
+        showAlert('Passwords do not match. Please re-enter carefully.', 'error');
+        return;
+      }
+
+      if (password.length < 6) {
+        showAlert('Password must be at least 6 characters long.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'CREATING MEMBER PROFILE...';
+      hideAlert();
+
+      try {
+        const res = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showAlert(`Welcome to Nike AirPulse, ${data.user.name}! Redirecting to store...`, 'success');
+          localStorage.setItem('nike_pulse_user', JSON.stringify(data.user));
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 900);
+        } else {
+          showAlert(data.error || 'Registration failed. Please try again.', 'error');
+          submitBtn.disabled = false;
+          btnText.textContent = 'JOIN NIKE AIRPULSE';
+        }
+      } catch (err) {
+        console.error(err);
+        showAlert('Network error connecting to registration server.', 'error');
+        submitBtn.disabled = false;
+        btnText.textContent = 'JOIN NIKE AIRPULSE';
+      }
+    });
+
+    function showAlert(msg, type) {
+      alertBox.textContent = msg;
+      alertBox.className = `auth-alert ${type}`;
+      alertBox.style.display = 'block';
+    }
+
+    function hideAlert() {
+      alertBox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

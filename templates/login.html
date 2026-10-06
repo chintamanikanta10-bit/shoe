@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Nike AirPulse Member Account for exclusive footwear releases, order tracking, and personalized Stride AI recommendations.">
+  <title>Sign In — NIKE // AIRPULSE MEMBER LAB</title>
+
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-ambient-glow"></div>
+
+  <div class="auth-wrapper">
+    
+    <!-- Top Back to Store Bar -->
+    <header class="auth-header">
+      <a href="/" class="auth-back-link">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Store</span>
+      </a>
+
+      <a href="/" class="brand-logo" aria-label="Nike Home">
+        <svg class="swoosh-icon" viewBox="0 0 100 36" fill="currentColor">
+          <path d="M96.7 1.8C81.8 12.5 61.2 24.5 41.5 31.2C28.4 35.7 14.3 35.4 4.8 28.5C0.3 25.2 -0.8 21.1 0.5 17.2C1.9 13 6.3 10.3 11.2 9.7C16.8 9.1 23.6 11.5 28.7 14.8C20.4 17.5 12.1 20.3 6.3 22.8C8.9 26.2 16.5 27.8 24.2 25.6C39.4 21.2 59.5 11.3 77.2 1.4C83.2 -2 90.3 -0.5 96.7 1.8Z"/>
+        </svg>
+        <span class="brand-title">AIRPULSE</span>
+      </a>
+    </header>
+
+    <!-- Main Login Card -->
+    <div class="auth-card">
+      
+      <div class="auth-card-top">
+        <div class="auth-tag">NIKE MEMBER ACCESS</div>
+        <h1 class="auth-title">YOUR ACCOUNT FOR EVERYTHING NIKE</h1>
+        <p class="auth-sub">Enter your email and password to access your cart, orders, and Stride AI profile.</p>
+      </div>
+
+      <!-- Alert Box for Errors/Success -->
+      <div class="auth-alert" id="auth-alert" style="display: none;"></div>
+
+      <form id="login-form" class="auth-form">
+        
+        <div class="auth-input-group">
+          <label for="login-email">Email Address</label>
+          <div class="auth-input-box">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input type="email" id="login-email" placeholder="athlete@nike.in" required autofocus>
+          </div>
+        </div>
+
+        <div class="auth-input-group">
+          <div class="label-row">
+            <label for="login-password">Password</label>
+            <a href="#" class="auth-forgot-link" onclick="fillDemoCredentials(event)">Fill Demo Account</a>
+          </div>
+          <div class="auth-input-box">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <input type="password" id="login-password" placeholder="••••••••" required>
+            <button type="button" class="btn-toggle-password" id="toggle-pwd" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <div class="auth-actions-row">
+          <label class="remember-checkbox">
+            <input type="checkbox" id="remember-me" checked>
+            <span>Keep me signed in</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary btn-large full-width" id="btn-login-submit">
+          <span id="login-btn-text">SIGN IN</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+      </form>
+
+      <!-- Quick Demo Credentials Box -->
+      <div class="demo-account-hint">
+        <span class="hint-title">⚡ Quick Demo Login:</span>
+        <div class="hint-details">
+          <span>Email: <strong>marcus@nike.in</strong></span>
+          <span>Password: <strong>NikePulse2026!</strong></span>
+        </div>
+        <button type="button" class="btn-fill-demo" onclick="fillDemoCredentials(event)">Use Demo Account</button>
+      </div>
+
+      <div class="auth-footer-prompt">
+        <span>Not a member yet?</span>
+        <a href="/register" class="auth-switch-link">Join Us / Create Account →</a>
+      </div>
+
+    </div>
+
+    <footer class="auth-page-footer">
+      <p>© 2026 NIKE // AIRPULSE LABS, INC. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const alertBox = document.getElementById('auth-alert');
+    const submitBtn = document.getElementById('btn-login-submit');
+    const btnText = document.getElementById('login-btn-text');
+    const togglePwd = document.getElementById('toggle-pwd');
+    const pwdInput = document.getElementById('login-password');
+
+    togglePwd.addEventListener('click', () => {
+      const isPwd = pwdInput.type === 'password';
+      pwdInput.type = isPwd ? 'text' : 'password';
+      togglePwd.textContent = isPwd ? '🔒' : '👁️';
+    });
+
+    function fillDemoCredentials(e) {
+      if (e) e.preventDefault();
+      document.getElementById('login-email').value = 'marcus@nike.in';
+      document.getElementById('login-password').value = 'NikePulse2026!';
+      showAlert('Demo credentials filled. Click "SIGN IN" to proceed.', 'info');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = pwdInput.value.trim();
+
+      if (!email || !password) return;
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'AUTHENTICATING...';
+      hideAlert();
+
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showAlert(`Welcome back, ${data.user.name}! Redirecting to store...`, 'success');
+          // Store user info in localStorage for client sync
+          localStorage.setItem('nike_pulse_user', JSON.stringify(data.user));
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 800);
+        } else {
+          showAlert(data.error || 'Invalid credentials. Please try again.', 'error');
+          submitBtn.disabled = false;
+          btnText.textContent = 'SIGN IN';
+        }
+      } catch (err) {
+        console.error(err);
+        showAlert('Network error connecting to authentication server.', 'error');
+        submitBtn.disabled = false;
+        btnText.textContent = 'SIGN IN';
+      }
+    });
+
+    function showAlert(msg, type) {
+      alertBox.textContent = msg;
+      alertBox.className = `auth-alert ${type}`;
+      alertBox.style.display = 'block';
+    }
+
+    function hideAlert() {
+      alertBox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

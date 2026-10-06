@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nike AirPulse India - Discover high-performance running, basketball, and streetwear sneakers in Indian Rupees (₹). Featuring Nike Stride AI recommendation engine, member login, and Nike By You customizer.">
+  <title>NIKE // AIRPULSE INDIA — High-Performance Footwear & AI Stride Finder (₹)</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Vanilla CSS -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar (INR) -->
+  <aside class="announcement-bar" id="announcement-bar" aria-label="Store announcement">
+    <div class="announcement-content">
+      <span class="announcement-badge">⚡ NIKE INDIA LAB</span>
+      <p class="announcement-text">
+        AIR ZOOM DUAL PODS NOW AVAILABLE • FREE EXPRESS SHIPPING ON ORDERS ₹14,000+ • USE CODE <strong class="promo-highlight">JUSTDOIT15</strong> FOR 15% OFF
+      </p>
+      <button class="announcement-close" id="close-announcement" aria-label="Close Announcement">&times;</button>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header" id="main-header">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="/" class="brand-logo" aria-label="Nike Home">
+        <svg class="swoosh-icon" viewBox="0 0 100 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M96.7 1.8C81.8 12.5 61.2 24.5 41.5 31.2C28.4 35.7 14.3 35.4 4.8 28.5C0.3 25.2 -0.8 21.1 0.5 17.2C1.9 13 6.3 10.3 11.2 9.7C16.8 9.1 23.6 11.5 28.7 14.8C20.4 17.5 12.1 20.3 6.3 22.8C8.9 26.2 16.5 27.8 24.2 25.6C39.4 21.2 59.5 11.3 77.2 1.4C83.2 -2 90.3 -0.5 96.7 1.8Z"/>
+        </svg>
+        <span class="brand-title">AIRPULSE</span>
+        <span class="currency-tag">IN (₹)</span>
+        <span class="brand-pulse-dot"></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" id="nav-links" aria-label="Primary Navigation">
+        <a href="#collection" class="nav-link active">Collection</a>
+        <a href="#recommender-section" class="nav-link highlight-ai">
+          <svg class="nav-icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+          </svg>
+          Stride AI Finder
+        </a>
+        <a href="#customizer" class="nav-link">Nike By You</a>
+        <a href="#technology" class="nav-link">Innovation</a>
+      </nav>
+
+      <!-- Search & Utility Actions -->
+      <div class="header-actions">
+        <!-- Live Search Bar -->
+        <div class="search-box-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="global-search-input" placeholder="Search Alphafly, Jordan, React..." aria-label="Search shoes">
+          <button id="clear-search-btn" class="clear-search-btn" style="display:none;" aria-label="Clear Search">&times;</button>
+        </div>
+
+        <!-- Stride AI CTA Button -->
+        <button class="btn-ai-trigger" id="btn-open-quiz" title="Find your exact sneaker match">
+          <span class="btn-spark-icon">✨</span>
+          <span>Find My Fit</span>
+        </button>
+
+        <!-- User Authentication Account Widget -->
+        <div class="user-auth-widget" id="user-auth-widget">
+          <!-- Populated by JavaScript: Login button OR User profile dropdown -->
+          <a href="/login" class="btn-auth-link" id="btn-auth-action">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Sign In</span>
+          </a>
+        </div>
+
+        <!-- Wishlist Button -->
+        <button class="icon-btn" id="btn-open-wishlist" aria-label="View Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="badge-count" id="wishlist-counter">0</span>
+        </button>
+
+        <!-- Shopping Cart Button -->
+        <button class="icon-btn cart-btn-header" id="btn-open-cart" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="badge-count" id="cart-counter">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-inner">
+      <a href="#collection" class="mobile-nav-item">Explore Collection</a>
+      <a href="#recommender-section" class="mobile-nav-item highlight">✨ Nike Stride AI Finder</a>
+      <a href="#customizer" class="mobile-nav-item">Nike By You Customizer</a>
+      <a href="#technology" class="mobile-nav-item">Innovation & Lab</a>
+      <div class="mobile-auth-row" id="mobile-auth-row">
+        <a href="/login" class="btn-primary full-width" style="text-align:center;">Sign In / Join Member Lab</a>
+      </div>
+      <button class="btn-primary full-width" id="mobile-quiz-trigger">Take Stride Match Quiz</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-ambient-glow"></div>
+      <div class="hero-container">
+        
+        <!-- Left Hero Typography -->
+        <div class="hero-content">
+          <div class="hero-tag-badge">
+            <span class="tag-pulse"></span>
+            <span>AIR ZOOM PROTO 2026 • INDIA LAUNCH</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-subline">JUST BREAK LIMITS</span>
+            PRECISION <br>
+            <span class="gradient-text">ENGINEERED</span> <br>
+            FOR SPEED.
+          </h1>
+
+          <p class="hero-description">
+            Dual forefoot Air Zoom pods meet ultra-resilient ZoomX foam and full-length carbon Flyplate. Tested by world champions to smash marathon milestones across Indian roads and tracks.
+          </p>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <span class="stat-number">85%</span>
+              <span class="stat-label">Energy Return</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number">7.7<small>oz</small></span>
+              <span class="stat-label">AtomKnit Weight</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number">4.9★</span>
+              <span class="stat-label">Athlete Verified</span>
+            </div>
+          </div>
+
+          <!-- Colorway Selector for Hero -->
+          <div class="hero-colorways">
+            <span class="colorway-label">PRO COLORWAYS:</span>
+            <div class="color-swatches">
+              <button class="color-swatch active" data-color="volt" style="--swatch-color: #ccff00;" title="Volt & Cyan"></button>
+              <button class="color-swatch" data-color="crimson" style="--swatch-color: #ff334b;" title="Hyper Crimson"></button>
+              <button class="color-swatch" data-color="obsidian" style="--swatch-color: #00e5ff;" title="Cyber Cyan"></button>
+              <button class="color-swatch" data-color="platinum" style="--swatch-color: #ffffff;" title="Pure Ghost"></button>
+            </div>
+            <span class="active-color-name" id="hero-color-name">Volt / Electric Cyan</span>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-cta-group">
+            <button class="btn-primary btn-large" id="hero-buy-btn" data-shoe-id="1">
+              <span>Shop Alphafly 3 — ₹22,795</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+            <button class="btn-secondary btn-large" id="hero-quiz-btn">
+              <span class="spark-icon">⚡</span>
+              <span>Find My Perfect Shoe</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Showcase -->
+        <div class="hero-visual-wrapper">
+          <div class="hero-card-3d" id="hero-card-3d">
+            
+            <div class="sneaker-aura aura-volt" id="sneaker-aura"></div>
+            <div class="sneaker-grid-backdrop"></div>
+
+            <div class="hero-image-box">
+              <img src="/static/images/hero_sneaker.jpg" alt="Nike Air Zoom Alphafly 3" class="hero-sneaker-img" id="hero-sneaker-img">
+            </div>
+
+            <div class="floating-badge badge-top-right">
+              <div class="badge-icon">💨</div>
+              <div class="badge-text">
+                <strong>Dual Air Zoom</strong>
+                <span>Instant Propulsive Pop</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-left">
+              <div class="badge-icon">🏁</div>
+              <div class="badge-text">
+                <strong>Sub-2h Technology</strong>
+                <span>Carbon Flyplate</span>
+              </div>
+            </div>
+
+            <div class="hero-card-footer">
+              <span class="interactive-hint">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                </svg>
+                Hover & move cursor to feel dynamic 3D perspective
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NIKE STRIDE AI RECOMMENDER SECTION BANNER -->
+    <section class="recommender-banner-section" id="recommender-section">
+      <div class="banner-container">
+        <div class="ai-banner-card">
+          <div class="banner-left">
+            <div class="ai-chip">
+              <span class="ai-pulse"></span>
+              <span>NIKE STRIDE AI™ BIOMECHANICS ENGINE</span>
+            </div>
+            <h2 class="ai-banner-title">STOP GUESSING. FIND YOUR PERFECT RUNNING & COURT SHOE IN 60 SECONDS.</h2>
+            <p class="ai-banner-sub">
+              Our intelligent algorithm analyzes your activity type, arch profile, cushioning needs, and strike intensity to recommend the exact shoe engineered for your biomechanics.
+            </p>
+            <div class="ai-features-pills">
+              <span class="pill">✓ Arch & Pronation Analysis</span>
+              <span class="pill">✓ ZoomX vs Air Max vs React</span>
+              <span class="pill">✓ Indian Surface & Grip Matching</span>
+              <span class="pill">✓ Real SQLite Catalog Scoring</span>
+            </div>
+          </div>
+          <div class="banner-right">
+            <button class="btn-ai-glow" id="btn-start-recommender">
+              <span class="ai-btn-text">Launch Stride Finder Quiz</span>
+              <span class="ai-btn-sub">Instant Personalized Recommendations</span>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN PRODUCT COLLECTION & CATALOG -->
+    <section class="collection-section" id="collection">
+      <div class="collection-container">
+        
+        <div class="section-top-bar">
+          <div class="section-title-wrap">
+            <span class="section-eyebrow">THE NIKE LAB ARCHIVE</span>
+            <h2 class="section-heading">EXPLORE THE LINEUP (₹ INR)</h2>
+          </div>
+
+          <div class="catalog-status">
+            <span id="active-results-count">12</span> Styles Engineered for Greatness
+          </div>
+        </div>
+
+        <!-- Filter & Control Toolbar -->
+        <div class="catalog-toolbar">
+          <div class="category-tabs" id="category-tabs" role="tablist">
+            <button class="cat-tab active" data-category="all" role="tab" aria-selected="true">All Shoes</button>
+            <button class="cat-tab" data-category="running" role="tab">Road Running</button>
+            <button class="cat-tab" data-category="basketball" role="tab">Basketball</button>
+            <button class="cat-tab" data-category="streetwear" role="tab">Streetwear</button>
+            <button class="cat-tab" data-category="training" role="tab">Gym & Training</button>
+          </div>
+
+          <div class="filter-controls-group">
+            <div class="custom-select-wrap">
+              <label for="cushion-filter" class="sr-only">Filter by Cushioning</label>
+              <select id="cushion-filter" class="custom-select">
+                <option value="all">All Cushioning Levels</option>
+                <option value="maximum">Maximum Plush Cushion</option>
+                <option value="responsive">Responsive Spring Pop</option>
+                <option value="balanced">Balanced Everyday</option>
+                <option value="stable">Stable & Grounded</option>
+              </select>
+            </div>
+
+            <div class="custom-select-wrap">
+              <label for="sort-filter" class="sr-only">Sort by</label>
+              <select id="sort-filter" class="custom-select">
+                <option value="featured">Featured Picks</option>
+                <option value="price_asc">Price: Low to High</option>
+                <option value="price_desc">Price: High to Low</option>
+                <option value="rating_desc">Highest Athlete Rating</option>
+                <option value="newest">Newest Drops</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="active-tags-bar" id="active-tags-bar" style="display:none;">
+          <span class="active-tag-label">Active Filters:</span>
+          <div class="tags-container" id="tags-container"></div>
+          <button class="btn-clear-all" id="btn-clear-all-filters">Reset All</button>
+        </div>
+
+        <!-- Dynamic Shoe Grid -->
+        <div class="shoes-grid" id="shoes-grid">
+          <div class="catalog-loading">
+            <div class="spinner"></div>
+            <p>Accessing Nike AirPulse Database...</p>
+          </div>
+        </div>
+
+        <div class="empty-results-box" id="empty-results-box" style="display:none;">
+          <div class="empty-icon">👟</div>
+          <h3>No matching shoes found</h3>
+          <p>Try adjusting your search keywords, category, or cushion filters.</p>
+          <button class="btn-secondary" id="btn-reset-filters">Reset Filters</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NIKE BY YOU CUSTOMIZER STUDIO SECTION -->
+    <section class="customizer-section" id="customizer">
+      <div class="customizer-container">
+        
+        <div class="customizer-header">
+          <span class="section-eyebrow">NIKE BY YOU STUDIO</span>
+          <h2 class="section-heading">DESIGN YOUR OWN ICON</h2>
+          <p class="section-sub">Pick your colors, customize the Swoosh, calibrate sole glow, and laser-engrave your signature tag.</p>
+        </div>
+
+        <div class="customizer-workbench">
+          
+          <div class="customizer-display">
+            <div class="customizer-pedestal">
+              
+              <div class="custom-sneaker-container" id="custom-sneaker-preview">
+                <img src="/static/images/hero_sneaker.jpg" alt="Customizer Base Sneaker" class="custom-base-img" id="custom-base-img">
+                <div class="custom-color-wash" id="custom-color-wash"></div>
+                <div class="custom-sole-glow" id="custom-sole-glow"></div>
+                <div class="custom-heel-tag" id="custom-heel-tag">AIR // 26</div>
+              </div>
+
+              <div class="customizer-spec-tag">
+                <span class="spec-label">MODEL:</span>
+                <strong>AIRPULSE BESPOKE 01</strong>
+                <span class="spec-divider">•</span>
+                <span id="custom-spec-summary">Obsidian / Volt / Engraved</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="customizer-panel">
+            <div class="panel-card">
+              
+              <h3 class="panel-title">Component Customization</h3>
+
+              <div class="custom-group">
+                <label class="custom-label">1. Primary Upper Tint</label>
+                <div class="color-options-row" id="upper-color-options">
+                  <button class="custom-color-btn active" data-upper="default" style="background:#121216;" title="Original Obsidian"></button>
+                  <button class="custom-color-btn" data-upper="crimson" style="background:linear-gradient(135deg, #ff1744, #b71c1c);" title="Crimson Blaze"></button>
+                  <button class="custom-color-btn" data-upper="cyber" style="background:linear-gradient(135deg, #00e5ff, #0091ea);" title="Cyber Cyan"></button>
+                  <button class="custom-color-btn" data-upper="emerald" style="background:linear-gradient(135deg, #00e676, #1b5e20);" title="Electric Mint"></button>
+                  <button class="custom-color-btn" data-upper="gold" style="background:linear-gradient(135deg, #ffd700, #ff8f00);" title="Championship Gold"></button>
+                </div>
+              </div>
+
+              <div class="custom-group">
+                <label class="custom-label">2. Air Zoom Pod Glow</label>
+                <div class="color-options-row" id="sole-glow-options">
+                  <button class="glow-color-btn active" data-glow="#ccff00" style="background:#ccff00;" title="Volt Electric"></button>
+                  <button class="glow-color-btn" data-glow="#ff0055" style="background:#ff0055;" title="Neon Infrared"></button>
+                  <button class="glow-color-btn" data-glow="#00f2fe" style="background:#00f2fe;" title="Cryo Cyan"></button>
+                  <button class="glow-color-btn" data-glow="#9d00ff" style="background:#9d00ff;" title="Hyper Ultraviolet"></button>
+                  <button class="glow-color-btn" data-glow="#ffffff" style="background:#ffffff;" title="Pure Xenon White"></button>
+                </div>
+              </div>
+
+              <div class="custom-group">
+                <label for="custom-engraving-input" class="custom-label">3. Laser Engrave Heel ID (Max 8 Chars)</label>
+                <div class="engraving-input-wrap">
+                  <input type="text" id="custom-engraving-input" maxlength="8" placeholder="AIR // 26" value="AIR // 26">
+                  <span class="char-limit" id="char-limit-count">7/8</span>
+                </div>
+              </div>
+
+              <div class="custom-order-box">
+                <div class="custom-price-wrap">
+                  <span class="custom-price-label">Custom Pair Price:</span>
+                  <span class="custom-price-val">₹24,995.00</span>
+                </div>
+                <button class="btn-primary full-width" id="btn-add-custom-shoe">
+                  <span>Add Custom Pair to Bag</span>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NIKE LAB TECHNOLOGY SHOWCASE -->
+    <section class="tech-section" id="technology">
+      <div class="tech-container">
+        
+        <div class="tech-header text-center">
+          <span class="section-eyebrow">PROPULSION LAB</span>
+          <h2 class="section-heading">INNOVATION BEYOND PHYSICS</h2>
+          <p class="section-sub">Every millimeter of every silhouette is tuned for kinetic efficiency and zero waste energy.</p>
+        </div>
+
+        <div class="tech-grid">
+          
+          <div class="tech-card">
+            <div class="tech-number">01</div>
+            <div class="tech-badge">FOAM ENGINEERING</div>
+            <h3 class="tech-title">ZoomX Bio-Foam</h3>
+            <p class="tech-desc">
+              Developed from aerospace cushioning, ZoomX delivers an astounding 85% kinetic energy return with less than half the density of standard EVA foam.
+            </p>
+            <div class="tech-metric">
+              <span class="metric-val">+85%</span>
+              <span class="metric-txt">Energy Redirection</span>
+            </div>
+          </div>
+
+          <div class="tech-card highlight-card">
+            <div class="tech-number">02</div>
+            <div class="tech-badge">PROPULSION</div>
+            <h3 class="tech-title">Full Carbon Flyplate</h3>
+            <p class="tech-desc">
+              Curved carbon-fiber plate calibrated for torsional rigidity. Creates a mechanical lever effect under the metatarsals to launch every stride forward.
+            </p>
+            <div class="tech-metric">
+              <span class="metric-val">4.2%</span>
+              <span class="metric-txt">Running Economy Boost</span>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-number">03</div>
+            <div class="tech-badge">DYNAMIC AIR</div>
+            <h3 class="tech-title">Four-Chamber Tubes</h3>
+            <p class="tech-desc">
+              Dual-pressure air chambers dynamically shift pneumatic support between heel and forefoot, matching your foot’s natural rolling motion effortlessly.
+            </p>
+            <div class="tech-metric">
+              <span class="metric-val">15 PSI</span>
+              <span class="metric-txt">Dual Chamber Pressure</span>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-number">04</div>
+            <div class="tech-badge">CONTAINMENT</div>
+            <h3 class="tech-title">AtomKnit 3.0 Weave</h3>
+            <p class="tech-desc">
+              Steamed and stretched Flyknit material with microscopic pore ventilation. Repels external moisture while delivering locked-in heel retention.
+            </p>
+            <div class="tech-metric">
+              <span class="metric-val">0%</span>
+              <span class="metric-txt">Water Absorption</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= MODALS & DRAWERS ================= -->
+
+  <!-- 1. NIKE STRIDE AI RECOMMENDER MODAL (INR BUDGET) -->
+  <div class="modal-overlay" id="quiz-modal" aria-hidden="true" role="dialog" aria-labelledby="quiz-modal-title">
+    <div class="modal-content quiz-modal-card">
+      <button class="modal-close-btn" id="close-quiz-btn" aria-label="Close Quiz">&times;</button>
+      
+      <div class="quiz-header">
+        <div class="quiz-badge">
+          <span class="badge-dot"></span>
+          <span>STRIDE AI BIOMECHANICS LAB • INDIA</span>
+        </div>
+        <h2 id="quiz-modal-title" class="quiz-title">FIND YOUR EXACT SNEAKER MATCH</h2>
+        
+        <div class="quiz-progress-bar">
+          <div class="progress-fill" id="quiz-progress-fill" style="width: 20%;"></div>
+        </div>
+        <div class="quiz-step-count" id="quiz-step-count">Step 1 of 5: Primary Purpose</div>
+      </div>
+
+      <div class="quiz-body" id="quiz-steps-container">
+        
+        <!-- STEP 1: ACTIVITY -->
+        <div class="quiz-step active" data-step="1">
+          <h3 class="step-question">What is your primary activity?</h3>
+          <p class="step-helper">We tune cushion density and plate stiffness to your target movement.</p>
+          <div class="quiz-options-grid">
+            <button class="quiz-option-btn active" data-value="running" data-param="activity">
+              <span class="option-icon">🏃‍♂️</span>
+              <span class="option-title">Road Running & Marathons</span>
+              <span class="option-sub">Pavement, long distances, race days</span>
+            </button>
+            <button class="quiz-option-btn" data-value="basketball" data-param="activity">
+              <span class="option-icon">🏀</span>
+              <span class="option-title">Basketball & Court</span>
+              <span class="option-sub">High impact landings, sharp cuts, ankle grip</span>
+            </button>
+            <button class="quiz-option-btn" data-value="streetwear" data-param="activity">
+              <span class="option-icon">👟</span>
+              <span class="option-title">Streetwear & Everyday</span>
+              <span class="option-sub">All-day urban comfort, iconic style</span>
+            </button>
+            <button class="quiz-option-btn" data-value="training" data-param="activity">
+              <span class="option-icon">🏋️‍♂️</span>
+              <span class="option-title">Gym, Crossfit & HIIT</span>
+              <span class="option-sub">Heavy lifting stability, rope climbs, agility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: CUSHION PREFERENCE -->
+        <div class="quiz-step" data-step="2">
+          <h3 class="step-question">What cushioning feel do you prefer?</h3>
+          <p class="step-helper">Impact absorption vs responsive ground spring.</p>
+          <div class="quiz-options-grid">
+            <button class="quiz-option-btn active" data-value="maximum" data-param="cushion">
+              <span class="option-icon">☁️</span>
+              <span class="option-title">Maximum Plush Cushion</span>
+              <span class="option-sub">Cloud-like shock absorption for joint protection</span>
+            </button>
+            <button class="quiz-option-btn" data-value="responsive" data-param="cushion">
+              <span class="option-icon">⚡</span>
+              <span class="option-title">Responsive Energy Spring</span>
+              <span class="option-sub">Carbon flyplate pop and instant rebound</span>
+            </button>
+            <button class="quiz-option-btn" data-value="balanced" data-param="cushion">
+              <span class="option-icon">⚖️</span>
+              <span class="option-title">Balanced Everyday</span>
+              <span class="option-sub">Versatile blend of comfort and court/road feel</span>
+            </button>
+            <button class="quiz-option-btn" data-value="stable" data-param="cushion">
+              <span class="option-icon">🧱</span>
+              <span class="option-title">Firm & Stable Base</span>
+              <span class="option-sub">Rigid heel support for squats & lateral cuts</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: ARCH SUPPORT -->
+        <div class="quiz-step" data-step="3">
+          <h3 class="step-question">What is your foot arch profile?</h3>
+          <p class="step-helper">Helps our SQLite algorithm match biomechanical guidance.</p>
+          <div class="quiz-options-grid">
+            <button class="quiz-option-btn active" data-value="neutral" data-param="arch">
+              <span class="option-icon">👣</span>
+              <span class="option-title">Neutral / Normal Arch</span>
+              <span class="option-sub">Standard pronation, universal fit</span>
+            </button>
+            <button class="quiz-option-btn" data-value="high_arch" data-param="arch">
+              <span class="option-icon">🏹</span>
+              <span class="option-title">High Arch</span>
+              <span class="option-sub">Requires contoured midsole support & shock dissipation</span>
+            </button>
+            <button class="quiz-option-btn" data-value="flat_feet" data-param="arch">
+              <span class="option-icon">📐</span>
+              <span class="option-title">Flat Feet / Low Arch</span>
+              <span class="option-sub">Overpronation prevention with wide base geometry</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: SURFACE & INTENSITY -->
+        <div class="quiz-step" data-step="4">
+          <h3 class="step-question">Where do you train most often?</h3>
+          <p class="step-helper">Determines outsole rubber compound and lug configuration.</p>
+          <div class="quiz-options-grid">
+            <button class="quiz-option-btn active" data-value="road" data-param="surface">
+              <span class="option-icon">🛣️</span>
+              <span class="option-title">Asphalt & Indian Roads</span>
+              <span class="option-sub">Hard surface abrasion resistance</span>
+            </button>
+            <button class="quiz-option-btn" data-value="court" data-param="surface">
+              <span class="option-icon">🏟️</span>
+              <span class="option-title">Hardwood Court</span>
+              <span class="option-sub">High-friction herringbone traction</span>
+            </button>
+            <button class="quiz-option-btn" data-value="gym" data-param="surface">
+              <span class="option-icon">🏋️</span>
+              <span class="option-title">Gym Turf & Rubber Floor</span>
+              <span class="option-sub">Multi-directional grip and rope wrap</span>
+            </button>
+            <button class="quiz-option-btn" data-value="street" data-param="surface">
+              <span class="option-icon">🏙️</span>
+              <span class="option-title">Everyday City Street</span>
+              <span class="option-sub">Durable cupsole and versatile pavement tread</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 5: BUDGET (INR) -->
+        <div class="quiz-step" data-step="5">
+          <h3 class="step-question">What is your target budget (in Rupees)?</h3>
+          <p class="step-helper">We will prioritize models within your price comfort zone.</p>
+          
+          <div class="budget-slider-box">
+            <div class="budget-display-row">
+              <span>Budget Cap:</span>
+              <strong id="budget-val-display">₹24,000</strong>
+            </div>
+            <input type="range" id="quiz-budget-slider" min="8000" max="25000" step="1000" value="24000" class="nike-range-slider">
+            <div class="budget-range-labels">
+              <span>₹8,000 (Entry Pro)</span>
+              <span>₹16,000 (Elite)</span>
+              <span>₹25,000+ (Olympic Lab)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULTS VIEW -->
+        <div class="quiz-results-view" id="quiz-results-view" style="display:none;">
+          <div class="quiz-calculating" id="quiz-calculating">
+            <div class="ai-scan-animation">
+              <div class="scan-ring"></div>
+              <div class="scan-core">⚡</div>
+            </div>
+            <h4>Calculating Biomechanical Fit...</h4>
+            <p>Evaluating foam recoil, arch curvature, and load displacement in SQLite database.</p>
+          </div>
+
+          <div class="quiz-results-content" id="quiz-results-content" style="display:none;"></div>
+        </div>
+
+      </div>
+
+      <!-- Quiz Navigation Buttons -->
+      <div class="quiz-footer" id="quiz-footer">
+        <button class="btn-secondary" id="quiz-prev-btn" style="visibility:hidden;">Back</button>
+        <button class="btn-primary" id="quiz-next-btn">
+          <span>Continue</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. PRODUCT DETAILS & REVIEWS MODAL (INR) -->
+  <div class="modal-overlay" id="product-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-product-title">
+    <div class="modal-content product-modal-card">
+      <button class="modal-close-btn" id="close-product-btn" aria-label="Close Details">&times;</button>
+      
+      <div class="product-modal-grid">
+        
+        <div class="product-modal-visuals">
+          <div class="modal-badge-tag" id="modal-badge-tag">BESTSELLER</div>
+          <div class="modal-main-img-box">
+            <img src="/static/images/hero_sneaker.jpg" alt="Shoe Detail" id="modal-main-img">
+          </div>
+          <div class="modal-tech-pills" id="modal-tech-pills"></div>
+        </div>
+
+        <div class="product-modal-info">
+          
+          <div class="modal-header-meta">
+            <span class="modal-subtitle" id="modal-subtitle">Men's Road Racing Shoe</span>
+            <h2 class="modal-title" id="modal-product-title">Nike Air Zoom Alphafly 3</h2>
+            <div class="modal-rating-row">
+              <div class="stars-gold" id="modal-stars">★★★★★</div>
+              <span class="rating-num" id="modal-rating-num">4.9</span>
+              <span class="reviews-link" id="modal-reviews-count">(348 reviews)</span>
+              <span class="verified-pill">✓ Athlete Verified</span>
+            </div>
+          </div>
+
+          <div class="modal-price-box">
+            <span class="current-price" id="modal-price">₹22,795.00</span>
+            <span class="original-price" id="modal-original-price">₹24,995.00</span>
+            <span class="discount-badge" id="modal-discount-badge">Save ₹2,200</span>
+          </div>
+
+          <p class="modal-description" id="modal-description">
+            Fine-tuned for marathon speed, the Alphafly 3 pushes what you thought was possible in road racing.
+          </p>
+
+          <div class="modal-colorway-info">
+            <span class="label">COLORWAY:</span>
+            <strong id="modal-colorway-name">Volt / Electric Cyan / Obsidian</strong>
+          </div>
+
+          <!-- Size Selector -->
+          <div class="modal-size-section">
+            <div class="size-header">
+              <span>Select US Men's Size (India Fit)</span>
+              <button class="size-guide-btn" id="btn-size-guide">Size Guide</button>
+            </div>
+            <div class="size-grid" id="modal-size-grid"></div>
+            <span class="size-alert" id="modal-size-alert" style="display:none;">Please select a size before adding to bag.</span>
+          </div>
+
+          <!-- Add to Bag / Wishlist CTA -->
+          <div class="modal-cta-row">
+            <button class="btn-primary btn-large flex-grow" id="modal-add-to-cart">
+              <span>Add to Bag</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+              </svg>
+            </button>
+            <button class="btn-icon-wishlist" id="modal-wishlist-toggle" aria-label="Add to Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="modal-accordions">
+            <details class="accordion-item" open>
+              <summary class="accordion-title">Key Performance Features</summary>
+              <ul class="features-list" id="modal-features-list"></ul>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-title">Full Technical Specifications</summary>
+              <div class="specs-table" id="modal-specs-table"></div>
+            </details>
+          </div>
+
+          <!-- Customer Reviews Section in Modal -->
+          <div class="modal-reviews-section">
+            <div class="reviews-header-row">
+              <h3>Community & Athlete Reviews</h3>
+              <button class="btn-write-review" id="btn-toggle-write-review">Write a Review</button>
+            </div>
+
+            <form class="review-form" id="review-form" style="display:none;">
+              <h4>Share Your Experience</h4>
+              <div class="form-row">
+                <input type="text" id="review-author" placeholder="Your Name or Athlete Tag" required>
+                <select id="review-rating" required>
+                  <option value="5">★★★★★ (5 - Excellent)</option>
+                  <option value="4">★★★★☆ (4 - Very Good)</option>
+                  <option value="3">★★★☆☆ (3 - Average)</option>
+                  <option value="2">★★☆☆☆ (2 - Below Expectations)</option>
+                  <option value="1">★☆☆☆☆ (1 - Poor)</option>
+                </select>
+              </div>
+              <input type="text" id="review-title" placeholder="Review Headline (e.g. Broke my 10k PR!)" required>
+              <textarea id="review-comment" rows="3" placeholder="Tell us how the cushion, fit, and performance felt..." required></textarea>
+              <button type="submit" class="btn-primary" id="btn-submit-review">Post Review to SQLite</button>
+            </form>
+
+            <div class="reviews-list" id="modal-reviews-list"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. SHOPPING CART DRAWER (INR) -->
+  <div class="drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+    
+    <div class="drawer-header">
+      <div class="drawer-title-wrap">
+        <h3>YOUR BAG</h3>
+        <span class="cart-drawer-count" id="drawer-item-count">(0 items)</span>
+      </div>
+      <button class="drawer-close-btn" id="close-cart-btn" aria-label="Close Bag">&times;</button>
+    </div>
+
+    <!-- Free shipping progress bar (INR ₹14,000 threshold) -->
+    <div class="free-shipping-tracker">
+      <div class="shipping-msg" id="shipping-tracker-msg">
+        Add ₹14,000 more for Free Nike Air Express Shipping in India
+      </div>
+      <div class="tracker-bar">
+        <div class="tracker-fill" id="shipping-tracker-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="cart-items-container">
+      <div class="cart-empty-state" id="cart-empty-state">
+        <div class="empty-bag-icon">🛍️</div>
+        <h4>Your bag is empty</h4>
+        <p>Explore our latest innovation drops and find your next race-day pair.</p>
+        <button class="btn-primary" id="btn-empty-cart-shop">Start Shopping</button>
+      </div>
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="drawer-footer" id="cart-drawer-footer">
+      <div class="promo-box">
+        <div class="promo-input-row">
+          <input type="text" id="promo-input" placeholder="Promo code (e.g. JUSTDOIT15)">
+          <button class="btn-apply-promo" id="btn-apply-promo">Apply</button>
+        </div>
+        <span class="promo-feedback" id="promo-feedback"></span>
+      </div>
+
+      <div class="cart-summary-lines">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">₹0.00</span>
+        </div>
+        <div class="summary-line discount-line" id="discount-row" style="display:none;">
+          <span>Promo Savings</span>
+          <span id="cart-discount">-₹0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Estimated Shipping</span>
+          <span id="cart-shipping">Free</span>
+        </div>
+        <div class="summary-line total-line">
+          <span>Total (INR)</span>
+          <strong id="cart-total">₹0.00</strong>
+        </div>
+      </div>
+
+      <button class="btn-primary btn-large full-width" id="btn-checkout-trigger">
+        <span>Proceed to Checkout</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- 4. CHECKOUT MODAL (INR & INDIAN PAYMENT METHODS) -->
+  <div class="modal-overlay" id="checkout-modal" aria-hidden="true" role="dialog" aria-labelledby="checkout-modal-title">
+    <div class="modal-content checkout-modal-card">
+      <button class="modal-close-btn" id="close-checkout-btn" aria-label="Close Checkout">&times;</button>
+      
+      <div class="checkout-grid" id="checkout-grid-container">
+        
+        <div class="checkout-form-column">
+          <div class="checkout-header">
+            <span class="checkout-badge">⚡ SECURE ENCRYPTED CHECKOUT • INDIA</span>
+            <h2 id="checkout-modal-title">SHIPPING & PAYMENT</h2>
+          </div>
+
+          <form id="checkout-form">
+            <div class="form-section-title">1. Contact Information</div>
+            <div class="form-row">
+              <div class="input-field">
+                <label for="checkout-name">Full Name</label>
+                <input type="text" id="checkout-name" placeholder="Aarav Sharma" required>
+              </div>
+              <div class="input-field">
+                <label for="checkout-email">Email Address</label>
+                <input type="email" id="checkout-email" placeholder="athlete@nike.in" required>
+              </div>
+            </div>
+
+            <div class="form-section-title">2. Delivery Address in India</div>
+            <div class="input-field">
+              <label for="checkout-address">Street Address, Flat / Building</label>
+              <input type="text" id="checkout-address" placeholder="Flat 402, Cyber Heights, Bandra West" required>
+            </div>
+            <div class="form-row">
+              <div class="input-field">
+                <label for="checkout-city">City / State</label>
+                <input type="text" id="checkout-city" placeholder="Mumbai, Maharashtra" required>
+              </div>
+              <div class="input-field">
+                <label for="checkout-postal">PIN Code (6 digits)</label>
+                <input type="text" id="checkout-postal" placeholder="400050" pattern="[0-9]{6}" required>
+              </div>
+            </div>
+
+            <div class="form-section-title">3. Payment Method (India)</div>
+            <div class="payment-selector">
+              <label class="payment-option active">
+                <input type="radio" name="payment_method" value="UPI (GPay / PhonePe / Paytm)" checked>
+                <span>⚡ UPI / GPay / Paytm</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="Credit / Debit Card">
+                <span>💳 Cards (Visa/Mastercard)</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="NetBanking">
+                <span>🏦 NetBanking</span>
+              </label>
+            </div>
+
+            <div class="input-field mt-3" id="upi-input-box">
+              <label for="checkout-upi-id">Virtual Payment Address / UPI ID</label>
+              <input type="text" id="checkout-upi-id" placeholder="athlete@okhdfcbank" value="nike.member@okaxis">
+            </div>
+
+            <button type="submit" class="btn-primary btn-large full-width mt-4" id="btn-place-order">
+              <span id="place-order-text">Pay in Rupees & Complete Order</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="checkout-review-column">
+          <h3>Order Overview</h3>
+          <div class="checkout-items-summary" id="checkout-items-summary"></div>
+          <div class="checkout-totals">
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <span id="checkout-subtotal">₹0.00</span>
+            </div>
+            <div class="summary-line discount-line" id="checkout-discount-row" style="display:none;">
+              <span>Promo Applied</span>
+              <span id="checkout-discount">-₹0.00</span>
+            </div>
+            <div class="summary-line">
+              <span>Nike Air Express Delivery</span>
+              <span class="text-green">FREE</span>
+            </div>
+            <div class="summary-line total-line">
+              <span>Grand Total</span>
+              <strong id="checkout-grand-total">₹0.00</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Order Confirmation Success View -->
+      <div class="order-success-view" id="order-success-view" style="display:none;">
+        <div class="success-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2>ORDER CONFIRMED!</h2>
+        <p class="order-num-callout">Order Reference: <strong id="success-order-num">NK-IN-9821-41902</strong></p>
+        <p class="success-msg">Your pair has been logged in SQLite and is being prepped at the Nike India Air Lab. A confirmation dispatch email has been simulated to <strong id="success-email"></strong>.</p>
+        <div class="success-details-card">
+          <div class="detail-line">
+            <span>Shipping Speed:</span>
+            <strong>2-3 Business Days (Nike Express India)</strong>
+          </div>
+          <div class="detail-line">
+            <span>Status:</span>
+            <strong class="text-green">Processing & Tracking Active</strong>
+          </div>
+        </div>
+        <button class="btn-primary" id="btn-success-continue">Continue Shopping</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5. MY ORDERS MODAL -->
+  <div class="modal-overlay" id="orders-modal" aria-hidden="true" role="dialog" aria-labelledby="orders-modal-title">
+    <div class="modal-content orders-modal-card" style="max-width: 680px; padding: 36px;">
+      <button class="modal-close-btn" id="close-orders-btn" aria-label="Close Orders">&times;</button>
+      <div class="orders-modal-header" style="margin-bottom: 20px;">
+        <span class="card-badge highlight-badge">NIKE MEMBER LAB</span>
+        <h2 id="orders-modal-title" style="font-family:var(--font-display); font-size:1.6rem; margin-top:8px;">MY RECENT ORDERS</h2>
+        <p style="font-size:0.86rem; color:var(--text-secondary);">Track your recent sneaker orders stored in the SQLite database.</p>
+      </div>
+      <div class="orders-list-body" id="orders-list-container">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- MAIN FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <svg class="swoosh-icon" viewBox="0 0 100 36" fill="currentColor">
+              <path d="M96.7 1.8C81.8 12.5 61.2 24.5 41.5 31.2C28.4 35.7 14.3 35.4 4.8 28.5C0.3 25.2 -0.8 21.1 0.5 17.2C1.9 13 6.3 10.3 11.2 9.7C16.8 9.1 23.6 11.5 28.7 14.8C20.4 17.5 12.1 20.3 6.3 22.8C8.9 26.2 16.5 27.8 24.2 25.6C39.4 21.2 59.5 11.3 77.2 1.4C83.2 -2 90.3 -0.5 96.7 1.8Z"/>
+            </svg>
+            <span>AIRPULSE INDIA</span>
+          </div>
+          <p class="footer-tagline">
+            Pushing the frontier of athletic human potential in India through responsive Air technology, computational biomechanics, and zero-compromise design.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Nike Instagram">IG</a>
+            <a href="#" class="social-icon" aria-label="Nike YouTube">YT</a>
+            <a href="#" class="social-icon" aria-label="Nike Twitter">X</a>
+            <a href="#" class="social-icon" aria-label="Nike TikTok">TK</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">FEATURED</h4>
+          <ul class="footer-links">
+            <li><a href="#collection">Air Zoom Alphafly 3</a></li>
+            <li><a href="#collection">Air Jordan 1 Retro</a></li>
+            <li><a href="#collection">Air Max Dn Dynamic</a></li>
+            <li><a href="#collection">Vaporfly 3 Next%</a></li>
+            <li><a href="#collection">Metcon 9 Training</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">MEMBER & LAB</h4>
+          <ul class="footer-links">
+            <li><a href="/login">Nike Member Sign In</a></li>
+            <li><a href="/register">Join Nike Member Lab</a></li>
+            <li><a href="#" id="footer-my-orders-link">Track My Orders</a></li>
+            <li><a href="#recommender-section">Nike Stride AI™ Finder</a></li>
+            <li><a href="#customizer">Nike By You Customizer</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">MEMBER PERKS INDIA</h4>
+          <div class="member-signup-box">
+            <p>Sign up to receive private access to Olympic drops and member-only colorways.</p>
+            <div class="newsletter-form">
+              <input type="email" id="newsletter-email" placeholder="Enter your email" aria-label="Email for newsletter">
+              <button class="btn-primary" id="btn-newsletter-join">Join</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 NIKE // AIRPULSE INDIA, INC. ALL PRICES IN INDIAN RUPEES (₹) INCL. GST. POWERED BY FLASK & SQLITE.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Sale</a>
+          <a href="#">Nike India Biomechanics Patent Notice</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/recommender.js"></script>
+  <script src="/static/js/customizer.js"></script>
+</body>
+</html>
